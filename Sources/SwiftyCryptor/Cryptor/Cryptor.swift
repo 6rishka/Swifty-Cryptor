@@ -1,6 +1,6 @@
 //
 //  Cryptor.swift
-//  Portal
+//  SwiftyCryptor
 //
 //  Created by Greg Charyszczak on 03/09/2020.
 //  Copyright © 2021 Greg Charyszczak. All rights reserved.
