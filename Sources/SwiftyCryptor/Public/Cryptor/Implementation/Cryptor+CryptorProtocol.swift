@@ -31,7 +31,7 @@ import SwiftKeychainWrapper
 
 extension Cryptor: CryptorProtocol {
     public func encrypt(value: String, with keyName: String) throws -> String {
-        let encryptionKey = SymmetricKey(size: encryptionKeySize)
+        let encryptionKey = getSymmetricKey(ofName: keyName) ?? SymmetricKey(size: encryptionKeySize)
         let encryptionKeyData = encryptionKey.withUnsafeBytes({ body in
             return Data(body)
         })
@@ -49,8 +49,7 @@ extension Cryptor: CryptorProtocol {
     }
     
     public func decrypt(value: String, with keyName: String) throws -> String {
-        if let encryptionKeyData = KeychainWrapper.standard.data(forKey: keyName) {
-            let encryptionKey = SymmetricKey(data: encryptionKeyData)
+        if let encryptionKey = getSymmetricKey(ofName: keyName) {
             if let encryptedValue = Data(base64Encoded: value) {
                 if let sealedBox = try? ChaChaPoly.SealedBox(combined: encryptedValue),
                    let decryptedData = try? ChaChaPoly.open(sealedBox, using: encryptionKey) {
