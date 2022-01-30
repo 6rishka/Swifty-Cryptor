@@ -29,13 +29,13 @@ iOS 13.0 +
 
 #### Swift Package Manager
 - In Xcode, open your project and navigate to File → Swift Packages → Add Package Dependency.
-- Paste the package repository URL ```https://github.com/6rishka/Swifty-Cryptor``` and click Next.
+- Paste the package repository URL ```https://github.com/grikshka/Swifty-Cryptor``` and click Next.
 - For Rules, select Version - Up to Next Major - ``` 1.0.0 ```.
 - Select your target projects and click Finish.
 
 #### Swift Package
 ```
-.package(name: "SwiftyCryptor", url: "https://github.com/6rishka/Swifty-Cryptor/", from: "1.0.0")
+.package(name: "SwiftyCryptor", url: "https://github.com/grikshka/Swifty-Cryptor/", from: "1.0.0")
 ```
 
 ## Dependencies
